@@ -1,5 +1,6 @@
 package level_0;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class lv0_1_to_20 {
@@ -101,6 +102,40 @@ public class lv0_1_to_20 {
 	        return answer;
 	    }
 		
+		/*
+			14) 머쓱이보다 키 큰 사람
+			머쓱이는 학교에서 키 순으로 줄을 설 때 몇 번째로 서야 하는지 궁금해졌습니다. 
+			머쓱이네 반 친구들의 키가 담긴 정수 배열 array와 머쓱이의 키 height가 매개변수로 주어질 때, 
+			머쓱이보다 키 큰 사람 수를 return 하도록 solution 함수를 완성해보세요.
+		*/
+		public int solution14(int[] array, int height) {
+			int answer = 0;
+	        for(int i=0; i<array.length; i++){
+	            if(height<array[i]){
+	                answer++;
+	            }
+	        }
+	        return answer;
+	    }
+		
+		/*
+			15) 배열 두 배 만들기
+			정수 배열 numbers가 매개변수로 주어집니다. 
+			numbers의 각 원소에 두배한 원소를 가진 배열을 return하도록 solution 함수를 완성해주세요.
+		*/
+		public int[] solution15(int[] numbers) {
+			int[] answer = {};
+	        answer = new int[numbers.length];
+	        for(int i=0; i<numbers.length; i++){
+	            answer[i] = numbers[i] * 2;
+	        }
+	        return answer;
+	    }
+		
+
+		
+		
+		
 	}
 	
 	
@@ -138,16 +173,37 @@ public class lv0_1_to_20 {
         System.out.print("12번 문제 : "+Arrays.toString(answer));
 	
 		//13
-        int[] array = {1, 2, 1, 4, 1};
+        int[] array13 = {1, 2, 1, 4, 1};
         int n13 = 1;
-        int result13 = sol.solution13(array, n13);
+        int result13 = sol.solution13(array13, n13);
         System.out.println("\n13번 문제 : "+result13);
         
 		//14
-		
+        int[] array14 = {165, 182, 170, 164, 158};
+        int result14 = sol.solution14(array14, 168);
+        System.out.println("14번 문제 : "+result14);
 		
 		//15
+        int[] array15 = {5, 2, 1, 14, 8};
+        int[] result15 = sol.solution15(array15);
+        System.out.println("15번 문제 : "+Arrays.toString(result15));
         
+        //16
+        //int[] array16 = {1, 2, 7, 10, 11};
+        int[] array16 = {9, -1, 0};
+        //int result16 = sol.solution16(array16);
+        //System.out.println("16번 문제 : "+result16);
+        
+        //17
+        
+        
+        //18
+        
+        
+        //19
+        
+        
+        //20
         
         
 	}
