@@ -132,9 +132,104 @@ public class lv0_1_to_20 {
 	        return answer;
 	    }
 		
-
+		/*
+		16) 중앙값 구하기
+			중앙값은 어떤 주어진 값들을 크기의 순서대로 정렬했을 때 가장 중앙에 위치하는 값을 의미합니다. 
+			예를 들어 1, 2, 7, 10, 11의 중앙값은 7입니다. 정수 배열 array가 매개변수로 주어질 때, 중앙값을 return 하도록 solution 함수를 완성해보세요.
+		*/
+		public int solution16(int[] array) {
+			int answer = 0;
+	        int n= array.length;
+	        //Arrays.sort(array);
+	        for(int i=0; i<n-1; i++) {
+	            for(int j=0; j<n-i-1; j++) {
+	                if(array[j] > array[j+1]) {
+	                    int num = array[j];
+	                    array[j] = array[j+1];
+	                    array[j+1] = num;
+	                }
+	            }
+	        }
+	        int result = array.length/2;
+	        answer = array[result];
+	        return answer;
+	    }
 		
+		/*
+			17) 짝수는 싫어요
+			정수 n이 매개변수로 주어질 때, n 이하의 홀수가 오름차순으로 담긴 배열을 return하도록 solution 함수를 완성해주세요.
+		*/
+		public int[] solution17(int n) {
+	        int[] answer = {};
+	        if(n%2==0){
+	        	answer = new int[n/2];
+	        	answer[0] = 1;
+	            for(int i=1; i<answer.length; i++) {
+	            	answer[i] = 2*i+1;
+	            }
+	        }else {
+	        	answer = new int[n/2+1];
+	        	answer[0] = 1;
+	            for(int i=1; i<answer.length; i++) {
+	            	answer[i] = 2*i+1;
+	            }
+	        }
+	        return answer;
+	    }
 		
+		/*
+			18) 피자 나눠 먹기 (1)
+			머쓱이네 피자가게는 피자를 일곱 조각으로 잘라 줍니다. 
+			피자를 나눠먹을 사람의 수 n이 주어질 때, 모든 사람이 피자를 한 조각 이상 먹기 위해 필요한 피자의 수를 return 하는 solution 함수를 완성해보세요.
+		*/
+		public int solution18(int n) {
+			int answer = 0;
+	        if(7>=n){
+	            answer = 1;
+	        }else if(n%7==0){
+	            answer = n/7;
+	        }else{
+	            answer = n/7+1;
+	        }
+	        return answer;
+	    }
+		
+		/*
+			19) 옷가게 할인 받기
+			머쓱이네 옷가게는 10만 원 이상 사면 5%, 30만 원 이상 사면 10%, 50만 원 이상 사면 20%를 할인해줍니다.
+			구매한 옷의 가격 price가 주어질 때, 지불해야 할 금액을 return 하도록 solution 함수를 완성해보세요.
+		*/
+		public int solution19(int price) {
+			int answer = 0;
+	        if(price>=500000){
+	            answer = (int)(price - (price * 0.2));
+	        }else if(price>=300000){
+	            answer = (int)(price - (price * 0.1));
+	        }else if(price>=100000){
+	            answer = (int)(price - (price * 0.05));
+	        }else{
+	            answer = price;
+	        }
+	        return answer;
+	    }
+		
+		/*
+			20) 아이스 아메리카노
+			머쓱이는 추운 날에도 아이스 아메리카노만 마십니다. 아이스 아메리카노는 한잔에 5,500원입니다. 
+			머쓱이가 가지고 있는 돈 money가 매개변수로 주어질 때, 머쓱이가 최대로 마실 수 있는 아메리카노의 잔 수와 남는 돈을 순서대로 담은 배열을 return 하도록 solution 함수를 완성해보세요.
+		*/
+		public int[] solution20(int money) {
+	        int[] answer = {};
+	        answer = new int[2];
+	        if(money<5500) {
+	        	answer[0] = 0;
+	        	answer[1] = money;
+	        }else if(money>=5500) {
+	        	answer[0] = money / 5500;
+	        	answer[1] = money % 5500;
+	        }
+	        return answer;
+	    }
 		
 	}
 	
@@ -189,22 +284,25 @@ public class lv0_1_to_20 {
         System.out.println("15번 문제 : "+Arrays.toString(result15));
         
         //16
-        //int[] array16 = {1, 2, 7, 10, 11};
         int[] array16 = {9, -1, 0};
-        //int result16 = sol.solution16(array16);
-        //System.out.println("16번 문제 : "+result16);
+        int result16 = sol.solution16(array16);
+        System.out.println("16번 문제 : "+result16);
         
         //17
-        
+        int[] result17 = sol.solution17(10);
+        System.out.println("17번 문제 : "+Arrays.toString(result17));
         
         //18
-        
+        int result18 = sol.solution18(8);
+        System.out.println("18번 문제 : "+result18);
         
         //19
-        
+        int result19 = sol.solution19(380000);
+        System.out.println("19번 문제 : "+result19);
         
         //20
-        
+        int[] result20 = sol.solution20(8000);
+        System.out.println("20번 문제 : "+Arrays.toString(result20));
         
 	}
 }
