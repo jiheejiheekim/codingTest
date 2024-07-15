@@ -95,7 +95,7 @@ public class lv0_21_to_30 {
 			암호화된 문자열 cipher를 주고받습니다.
 			그 문자열에서 code의 배수 번째 글자만 진짜 암호입니다.
 			문자열 cipher와 정수 code가 매개변수로 주어질 때 해독된 암호 문자열을 return하도록 solution 함수를 완성해주세요.
-		 */
+		*/
 		public String solution26(String cipher, int code) {
 	        String answer = "";
 	        String[] ci = cipher.split("");
@@ -108,7 +108,7 @@ public class lv0_21_to_30 {
 		/*
 		 	27) 대문자와 소문자
 		 	문자열 my_string이 매개변수로 주어질 때, 대문자는 소문자로 소문자는 대문자로 변환한 문자열을 return하도록 solution 함수를 완성해주세요.
-		 */
+		*/
 		public String solution27(String my_string) {
 	        String answer = "";
 	        String[] mys = my_string.split("");
@@ -128,11 +128,73 @@ public class lv0_21_to_30 {
 	        return answer;
 	    }
 		
+		/*
+			28) 가장 큰 수 찾기
+			정수 배열 array가 매개변수로 주어질 때, 가장 큰 수와 그 수의 인덱스를 담은 배열을 return 하도록 solution 함수를 완성해보세요.
+		*/
+		public int[] solution28(int[] array) {
+	        int[] answer = {};
+	        answer = new int[2];
+	        for(int i=0; i<array.length; i++) {
+	        	for(int j=1; j<=array.length-1; j++)
+		        	if(array[j] > array[i]) {
+		        		answer[0] = array[j];
+		        		answer[1] = j;
+		        	}
+	        }
+	        return answer;
+	    }
+
+		/*
+			29) n의 배수 고르기
+			정수 n과 정수 배열 numlist가 매개변수로 주어질 때, 
+			numlist에서 n의 배수가 아닌 수들을 제거한 배열을 return하도록 solution 함수를 완성해주세요. 4, 5, 6, 7, 8, 9, 10, 11, 12
+		*/
+		public int[] solution29(int n, int[] numlist) {
+	        int[] answer = {};
+	        int num = 0;
+	        int j=0;
+	        for(int i=0; i<numlist.length; i++) {
+	        	if(numlist[i] % n == 0) {
+	        		num+=1;
+	        	}
+	        }
+	        answer = new int[num];
+	        
+	        for(int k=0; k<numlist.length; k++) {
+	        	if(numlist[k] % n == 0) {
+	        		answer[j] = numlist[k];
+	        		//System.out.println(">>>>>>>>>>>>>>>>j : "+j+"   k : "+k+"  numlist[k] : "+numlist[k]+"    answer[j] : "+answer[j]);
+	        		j++;
+	        	}
+	        }
+	       
+	        //System.out.println("num : "+num);
+	        //System.out.println("answer.length : "+answer.length);
+	        //System.out.println(Arrays.toString(answer));
+	        return answer;
+	    }
 		
+		/*
+		 	30) 특정 문자 제거하기
+		 	문자열 my_string과 문자 letter이 매개변수로 주어집니다. my_string에서 letter를 제거한 문자열을 return하도록 solution 함수를 완성해주세요.
+		 */
+		public String solution30(String my_string, String letter) {
+	        String answer = "";
+	        char letterChar = letter.charAt(0);
+	        char[] my_char = my_string.toCharArray();
+	        
+	        for(int i=0; i<my_char.length; i++) {
+	        	if(my_char[i] != letterChar) {
+	        		answer += my_char[i];
+	        	}
+	        }
+	        return answer;
+	    }
 		
 	}
 
-	public static <E> void main(String[] args) {
+	public static void main(String[] args) {
 		Solution sol = new Solution();
 		
 		//21
@@ -174,13 +236,22 @@ public class lv0_21_to_30 {
 		String result27 = sol.solution27(my_string27);
 		System.out.println("27번 문제 : "+result27);
 		
-		//28
-		
+		//28,
+		int[] array28 = {1, 8, 3, 2, 7, 10};
+		int[] result28 = sol.solution28(array28);
+		System.out.println("28번 문제 : "+Arrays.toString(result28));
 		
 		//29
-		
+		int[] array29 = {4, 5, 6, 7, 8, 9, 10, 11, 12};
+		int n29 = 3;
+		int[] result29 = sol.solution29(n29, array29);
+		System.out.println("29번 문제 : "+Arrays.toString(result29));
 		
 		//30
+		String my_string30 = "abcdef";
+		String letter30 = "f";
+		String result30 = sol.solution30(my_string30, letter30);
+		System.out.println("30번 문제 : "+result30);
 
 	}
 
