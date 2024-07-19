@@ -167,7 +167,6 @@ public class lv0_41_to_50 {
 	        int answer = 0;
 	        String num = String.valueOf(order);
 	        String[] nums = num.split("");
-	        System.out.println(Arrays.toString(nums));
 	        
 	        int[] arr = new int[nums.length];
 	        for(int i=0; i<arr.length; i++) {
@@ -181,10 +180,26 @@ public class lv0_41_to_50 {
 	    }
 		
 		/*
-		 	50) 
+		 	50) 약수 구하기
+		 	정수 n이 매개변수로 주어질 때, n의 약수를 오름차순으로 담은 배열을 return하도록 solution 함수를 완성해주세요.
 		*/
-		
-	
+		public int[] solution50(int n) {
+	        int[] answer = {};
+	        int num=0;
+	        for(int i=1; i<=n; i++) {
+	        	if(n%i==0) {
+	        		num++;
+	        	}
+	        }
+	        answer = new int[num];
+	        int index =0;
+	        for(int i=1; i<=n; i++) {
+	        	if(n%i==0) {
+	        		answer[index++] = i;
+	        	}
+	        }
+	        return answer;
+	    }
 	}
 
 	public static void main(String[] args) {
@@ -239,8 +254,9 @@ public class lv0_41_to_50 {
 		System.out.println("49번 문제 : "+result49);
 		
 		//50
-		
-		System.out.println("50번 문제 : ");
+		int n50 = 24;
+		int[] result50 = sol.solution50(n50);
+		System.out.println("50번 문제 : "+Arrays.toString(result50));
 
 	}
 
