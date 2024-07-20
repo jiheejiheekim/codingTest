@@ -153,15 +153,51 @@ public class lv0_51_to_60 {
 	    }
 		 
 		/*
-		 	58) 
-		 	
+		 	58) 2차원으로 만들기
+		 	정수 배열 num_list와 정수 n이 매개변수로 주어집니다. 
+		 	num_list를 다음 설명과 같이 2차원 배열로 바꿔 return하도록 solution 함수를 완성해주세요.
+
+			num_list가 [1, 2, 3, 4, 5, 6, 7, 8] 로 길이가 8이고 n이 2이므로 
+			num_list를 2 * 4 배열로 다음과 같이 변경합니다. 
+			2차원으로 바꿀 때에는 num_list의 원소들을 앞에서부터 n개씩 나눠 2차원 배열로 변경합니다.
 		*/ 
-		
+		public int[][] solution58(int[] num_list, int n) {
+	        int[][] answer = {};
+	        answer = new int[num_list.length/n][n];
+	        int k=0;
+	        for(int i=0; i<num_list.length/n; i++) {
+	        	for(int j=0; j<n; j++) {
+	        		answer[i][j] = num_list[k++];
+	        	}
+	        }
+	        return answer;
+	    }
 		
 		/*
-		 	59) 
+		 	59) 진료순서 정하기
+		 	외과의사 머쓱이는 응급실에 온 환자의 응급도를 기준으로 진료 순서를 정하려고 합니다. 
+		 	정수 배열 emergency가 매개변수로 주어질 때 응급도가 높은 순서대로 
+		 	진료 순서를 정한 배열을 return하도록 solution 함수를 완성해주세요.
+		 	[3, 76, 24]
+		 	[3, 24, 76]
+		 	
+		 	[3, 1, 2]
 		*/
-		
+		public int[] solution59(int[] emergency) {
+	        int[] answer = {};
+	        answer = new int[emergency.length];
+	        int[] sort = emergency.clone();
+	        Arrays.sort(sort);
+	        
+	        for(int i=0; i<emergency.length; i++) {
+	        	for(int j=0; j<sort.length; j++) {
+	        		if(emergency[i] == sort[j]) {
+	        			answer[j] = emergency.length-i;
+	        		}
+	        	}
+	        }
+	        return answer;
+	    }
 		
 		/*
 		 	60) 
@@ -209,12 +245,15 @@ public class lv0_51_to_60 {
 		System.out.println("57번 문제 : "+result57);
 		
 		//58
-		
-		//System.out.println("58번 문제 : "+Arrays.toString(result58));
+		int[] arr58 = {1, 2, 3, 4, 5, 6, 7, 8};
+		int n58 = 2;
+		int[][] result58 = sol.solution58(arr58, n58);
+		System.out.println("58번 문제 : "+Arrays.deepToString(result58));
 		
 		//59
-		
-		//System.out.println("59번 문제 : "+result59);
+		int[] emer59 = {3, 76, 24};
+		int[] result59 = sol.solution59(emer59);
+		System.out.println("59번 문제 : "+Arrays.toString(result59));
 		
 		//60
 		
