@@ -1,6 +1,7 @@
 package level_0;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.LinkedHashSet;
 
 public class lv0_51_to_60 {
@@ -200,8 +201,39 @@ public class lv0_51_to_60 {
 	    }
 		
 		/*
-		 	60) 
+		 	60) 모스부호 (1)
+		 	머쓱이는 친구에게 모스부호를 이용한 편지를 받았습니다. 
+		 	그냥은 읽을 수 없어 이를 해독하는 프로그램을 만들려고 합니다. 
+		 	문자열 letter가 매개변수로 주어질 때, letter를 영어 소문자로 바꾼 문자열을 return 하도록 solution 함수를 완성해보세요.
+			모스부호는 다음과 같습니다.
 		*/
+		public String solution60(String letter) {
+	        String answer = "";
+	        String[] let = letter.split(" ");
+	        
+	        String[] morse = { 
+				    ".-", "-...", "-.-.", "-..", ".", "..-.",
+				    "--.","....","..",".---","-.-",".-..",
+				    "--","-.","---",".--.","--.-",".-.",
+				    "...","-","..-","...-",".--","-..-",
+				    "-.--","--.."
+				};
+	        char[] al = new char[26];
+	        for(int i=0; i<al.length; i++) {
+	        	al[i] = (char)(97 + i);
+	        }
+	        //System.out.println(Arrays.toString(al));
+	       
+	        for(int i=0; i<let.length; i++) {
+	        	for(int k=0; k<morse.length; k++) {
+		        	if(let[i].equals(morse[k])) {
+		        		answer+=al[k];
+		        	}
+	        	}
+	        }
+	        
+	        return answer;
+	    }
 		
 	}
 
@@ -256,8 +288,9 @@ public class lv0_51_to_60 {
 		System.out.println("59번 문제 : "+Arrays.toString(result59));
 		
 		//60
-		
-		//System.out.println("50번 문제 : "+result60);
+		String letter = ".... . .-.. .-.. ---";
+		String result60 = sol.solution60(letter);
+		System.out.println("50번 문제 : "+result60);
 
 	}
 
