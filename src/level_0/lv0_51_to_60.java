@@ -290,7 +290,7 @@ public class lv0_51_to_60 {
 		//60
 		String letter = ".... . .-.. .-.. ---";
 		String result60 = sol.solution60(letter);
-		System.out.println("50번 문제 : "+result60);
+		System.out.println("60번 문제 : "+result60);
 
 	}
 
