@@ -171,14 +171,24 @@ public class lv0_61_to_70 {
 	    }
 		
 		/*
-		 	70) 공백으로 구분하기
-		 	단어가 공백 한 개 이상으로 구분되어 있는 문자열 my_string이 매개변수로 주어질 때, 
-		 	my_string에 나온 단어를 앞에서부터 순서대로 담은 문자열 배열을 return 하는 solution 함수를 작성해 주세요.
+		 	70) 팩토리얼
+		 	i팩토리얼 (i!)은 1부터 i까지 정수의 곱을 의미합니다. 예를들어 5! = 5 * 4 * 3 * 2 * 1 = 120 입니다. 
+		 	정수 n이 주어질 때 다음 조건을 만족하는 가장 큰 정수 i를 return 하도록 solution 함수를 완성해주세요.
 		*/
-		public String[] solution70(String my_string) {
-			String[] answer = {};
-						
-			
+		public int solution70(int n) {
+	        int answer = 0;
+	        int k = 1;
+	        //n = 3628800;
+	        for(int i=1; i<=10; i++) {
+	        	k = k*i;
+	        	if(k == n) {
+	        		answer = i;
+	        		break;
+	        	}else if(n < k){
+	        		answer = i-1;
+	        		break;
+	        	}
+	        }
 	        return answer;
 	    }
 		
@@ -235,10 +245,9 @@ public class lv0_61_to_70 {
 		System.out.println("69번 문제 : "+result69);
 		
 		//70
-		String my70 = " i    love  you";
-		//String my70 = "    programmers  ";
-		String[] result70 = sol.solution70(my70);
-		System.out.println("70번 문제 : "+Arrays.toString(result70));
+		int n70 = 7;
+		int result70 = sol.solution70(n70);
+		System.out.println("70번 문제 : "+result70);
 
 	}
 
