@@ -1,8 +1,6 @@
 package level_0;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.LinkedHashSet;
 
 public class lv0_71_to_80_sample {
 	
@@ -181,7 +179,7 @@ public class lv0_71_to_80_sample {
 		public int solution77(String s) {
 	        int answer = 0;
 	        String[] arrr = s.split(" ");
-	        System.out.println(Arrays.toString(arrr));
+	        //System.out.println(Arrays.toString(arrr));
 	        for(int i=0; i<arrr.length; i++) {
 	        	if(!arrr[i].equals("Z")) {
 	        		answer += Integer.valueOf(arrr[i]);
@@ -193,9 +191,92 @@ public class lv0_71_to_80_sample {
 	    }
 		 
 		/*
-		 	78) 
+		 	78) 이진수 더하기
+		 	이진수를 의미하는 두 개의 문자열 bin1과 bin2가 매개변수로 주어질 때, 두 이진수의 합을 return하도록 solution 함수를 완성해주세요.
 		*/ 
-		
+		public String solution78(String bin1, String bin2) {
+	        String answer = "";
+	        /*
+	        bin1 = "1001";
+	        bin2 = "1111";
+	        int b1_len = bin1.length();	//10	=> 2
+	        int b2_len = bin2.length();	//11	=> 3
+	        
+	        int g = 0;
+	        int h = 0;
+	        
+	        for(int i=0; i<b1_len-1; i++) {
+	        	if(bin1.charAt(i) == '1') {
+	        		g += (int)Math.pow(2, b1_len-i-1);
+	        		//System.out.println("i는 "+i+" g는 "+g);
+	        	}
+	        }
+	        if(bin1.charAt(b1_len-1) == '1') {
+	        	g++;
+	        }
+	        
+	        for(int i=0; i<b2_len-1; i++) {
+	        	if(bin2.charAt(i) == '1') {
+	        		h += (int)Math.pow(2, b2_len-i-1);
+	        		//System.out.println("i는 "+i+" g는 "+g);
+	        	}
+	        }
+	        if(bin2.charAt(b2_len-1) == '1') {
+	        	h++;
+	        }
+	        
+	        //System.out.println("g : "+g);
+	        //System.out.println("h : "+h);
+	        
+	        int sum = g + h;
+	        //System.out.println("sum : "+sum);
+	        
+	        
+	        int arrIndex = 0;
+	        for(int i=1; i<=sum+1; i*=2) {
+	        	arrIndex++;
+	        }
+	        int[] arr = new int[arrIndex];
+	        int[] arr2 = new int[arrIndex];
+	        int ind = 0;
+	        
+	        int b1 = 0;
+	        int b2 = 0;
+	        
+	        for(int i=1; i<=sum+1; i*=2) {
+	        	arr[ind++] = i;
+		        for(int j=i; j<=sum+1; j*=2) {
+	        		//System.out.println("j는   "+j);
+	        		if(i+j == sum) {
+	        			//System.out.println("i인 "+i+" 와 j인 "+j+" 가 같음");
+	        			b1 = i;
+	        			b2 = j;
+	        		}
+	        	}
+	        } 
+	        //System.out.println(Arrays.toString(arr));
+	        
+	        for(int i=0; i<arr.length; i++) {
+	        	if(arr[i] == b1 || arr[i] == b2) {
+	        		arr[i] = 1;
+	        	}else {
+	        		arr[i] = 0;
+	        	}
+	        }
+	        //System.out.println(Arrays.toString(arr));
+	        
+	        for(int i=arr.length-1; i>=0; i--) {
+	        	answer += String.valueOf(arr[i]);
+	        }
+	        */
+	        
+	        int n1 = Integer.parseInt(bin1, 2);
+	        int n2 = Integer.parseInt(bin2, 2);
+	        int sum = n1 + n2;
+	        
+	        answer = Integer.toBinaryString(sum);
+	        return answer;
+	    }
 		
 		/*
 		 	79) 
@@ -244,7 +325,7 @@ public class lv0_71_to_80_sample {
 		//76
 		int[] arr76 = {7, 77, 17};
 		int result76 = sol.solution76(arr76);
-		System.out.println("77번 문제 : "+result76);
+		System.out.println("76번 문제 : "+result76);
 		
 		//77
 		String s77 = "1 2 Z 3";
@@ -252,8 +333,10 @@ public class lv0_71_to_80_sample {
 		System.out.println("77번 문제 : "+result77);
 		
 		//78
-		
-		//System.out.println("77번 문제 : "+Arrays.deepToString(result78));
+		String b1 = "10";
+		String b2 = "11";
+		String result78 = sol.solution78(b1, b2);
+		System.out.println("77번 문제 : "+result78);
 		
 		//79
 		
