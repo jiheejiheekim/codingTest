@@ -1,6 +1,8 @@
 package level_0;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class lv0_71_to_80_sample {
 	
@@ -279,14 +281,46 @@ public class lv0_71_to_80_sample {
 	    }
 		
 		/*
-		 	79) 
+		 	79) 잘라서 배열로 저장하기
+		 	문자열 my_str과 n이 매개변수로 주어질 때, my_str을 길이 n씩 잘라서 저장한 배열을 return하도록 solution 함수를 완성해주세요.
 		*/
-		
+		public String[] solution79(String my_str, int n) {
+	        String[] answer = {};
+	        int index = 0;
+	        int n1 = n;
+	        
+	        int range = (my_str.length()%n==0)? my_str.length()/n:(my_str.length()/n)+1;
+	        answer = new String[range];
+	        
+	        for(int i=0; i<range; i++) {
+	        	if(i == range-1) {
+	        		//System.out.println("index : "+index);
+	        		answer[i] = my_str.substring(index, my_str.length());
+	        	}else {
+	        		answer[i] = my_str.substring(index, n1);
+	        		//System.out.println("i: "+i+"   index : "+index+"   n : "+n);
+	        		index+=n;
+	        		n1+=n;
+	        	}
+	        }
+	        return answer;
+	    }
 		
 		/*
-		 	70) 
+		 	80) 공 던지기
+		 	머쓱이는 친구들과 동그랗게 서서 공 던지기 게임을 하고 있습니다. 
+		 	공은 1번부터 던지며 오른쪽으로 한 명을 건너뛰고 그다음 사람에게만 던질 수 있습니다. 
+		 	친구들의 번호가 들어있는 정수 배열 numbers와 정수 K가 주어질 때, 
+		 	k번째로 공을 던지는 사람의 번호는 무엇인지 return 하도록 solution 함수를 완성해보세요.
 		*/
-		
+		public int solution80(int[] numbers, int k) {
+	        int answer = 0;
+	        k=5;
+	        
+	     
+	       
+	        return answer;
+	    }
 		
 	}
 
@@ -339,12 +373,18 @@ public class lv0_71_to_80_sample {
 		System.out.println("77번 문제 : "+result78);
 		
 		//79
-		
-		//System.out.println("79번 문제 : "+Arrays.toString(result79));
+		String my79 = "abc1Addfggg4556b";
+		int n79 = 6;
+		String[] result79 = sol.solution79(my79, n79);
+		System.out.println("79번 문제 : "+Arrays.toString(result79));
 		
 		//80
-		
-		//System.out.println("70번 문제 : "+result80);
+		//int[] numbers80 = {1, 2, 3, 4};
+		int[] numbers80 = {1, 2, 3, 4, 5, 6};
+		//int[] numbers80 = {1, 2, 3};
+		int k80 = 2;
+		int result80 = sol.solution80(numbers80, k80);
+		System.out.println("80번 문제 : "+result80);
 
 	}
 
