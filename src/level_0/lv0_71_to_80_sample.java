@@ -315,10 +315,25 @@ public class lv0_71_to_80_sample {
 		*/
 		public int solution80(int[] numbers, int k) {
 	        int answer = 0;
-	        k=5;
+	        //k=5;
+	        //k=3;
+	        int len = numbers.length;
+	        //System.out.println("배열 : "+Arrays.toString(numbers)+"\t/ len : "+len);
+	        List<Integer> list = new ArrayList<>();
+	        int index = 0;
 	        
-	     
-	       
+	        for(int i=0; i<k; i++) {
+	        	list.add(numbers[index]);
+	        	index+=2;
+	        	if(index == len) {
+	        		index = 0;
+	        	}else if(index > len) {
+	        		index = 1;
+	        	}
+	        }
+	        //System.out.println(list);
+	        //System.out.println(list.get(list.size()-1));
+	        answer = list.get(list.size()-1);
 	        return answer;
 	    }
 		
@@ -379,13 +394,14 @@ public class lv0_71_to_80_sample {
 		System.out.println("79번 문제 : "+Arrays.toString(result79));
 		
 		//80
-		//int[] numbers80 = {1, 2, 3, 4};
-		int[] numbers80 = {1, 2, 3, 4, 5, 6};
+		int[] numbers80 = {1, 2, 3, 4};
+		//int[] numbers80 = {1, 2, 3, 4, 5, 6};
 		//int[] numbers80 = {1, 2, 3};
 		int k80 = 2;
 		int result80 = sol.solution80(numbers80, k80);
 		System.out.println("80번 문제 : "+result80);
 
+		
 	}
 
 }
