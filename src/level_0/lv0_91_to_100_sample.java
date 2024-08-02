@@ -46,9 +46,22 @@ public class lv0_91_to_100_sample {
 	    }
 		
 		/*
-		 	93) 
+		 	93) 5명씩
+		 	최대 5명씩 탑승가능한 놀이기구를 타기 위해 줄을 서있는 사람들의 이름이 담긴 문자열 리스트 names가 주어질 때, 
+		 	앞에서 부터 5명씩 묶은 그룹의 가장 앞에 서있는 사람들의 이름을 담은 리스트를 return하도록 solution 함수를 완성해주세요. 
+		 	마지막 그룹이 5명이 되지 않더라도 가장 앞에 있는 사람의 이름을 포함합니다.
 		*/
-		
+		public String[] solution93(String[] names) {
+	        String[] answer = {};
+	        int len = (names.length%5==0)? (names.length/5):(names.length/5)+1;
+	        answer = new String[len];
+	        int index = 0;
+	        for(int i=0; i<names.length; i++){
+	        	if(i==0) answer[index++] = names[i];
+	        	else if(i%5==0) answer[index++] = names[i];
+	        }
+	        return answer;
+	    }
 		
 		/*
 		 	94) 
@@ -102,8 +115,9 @@ public class lv0_91_to_100_sample {
 		System.out.println("92번 문제 : "+result92);
 		
 		//93
-		
-		//System.out.println("93번 문제 : "+result93);
+		String names[] = {"nami", "ahri", "jayce", "garen", "ivern", "vex", "jinx"};
+		String result93[] = sol.solution93(names);
+		System.out.println("93번 문제 : "+Arrays.toString(result93));
 		
 		//94
 		
