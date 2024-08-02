@@ -166,9 +166,15 @@ public class lv0_81_to_90_sample {
 	    }
 		
 		/*
-		 	90) 
+		 	90) 공배수
+		 	정수 number와 n, m이 주어집니다. 
+		 	number가 n의 배수이면서 m의 배수이면 1을 아니라면 0을 return하도록 solution 함수를 완성해주세요.
 		*/
-		
+		public int solution90(int number, int n, int m) {
+	        int answer = 0;
+	        answer = (number%n==0 && number%m==0)? 1:0;
+	        return answer;
+	    }
 		
 	}
 
@@ -223,8 +229,11 @@ public class lv0_81_to_90_sample {
 		System.out.println("89번 문제 : "+result89);
 		
 		//90
-		
-		//System.out.println("70번 문제 : "+result90);
+		int num90 = 60;
+		int n = 2;
+		int m = 3;
+		int result90 = sol.solution90(num90, n, m);
+		System.out.println("90번 문제 : "+result90);
 
 	}
 
