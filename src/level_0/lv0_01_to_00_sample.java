@@ -28,7 +28,7 @@ public class lv0_01_to_00_sample {
 		
 		
 		/*
-		 	66) 
+		 	65) 
 		*/
 		
 		
@@ -53,7 +53,7 @@ public class lv0_01_to_00_sample {
 		
 		
 		/*
-		 	60) 
+		 	70) 
 		*/
 		
 		
@@ -98,7 +98,7 @@ public class lv0_01_to_00_sample {
 		
 		//System.out.println("69번 문제 : "+Arrays.toString(result69));
 		
-		//60
+		//70
 		
 		//System.out.println("70번 문제 : "+result70);
 

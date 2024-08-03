@@ -1,8 +1,10 @@
 package level_0;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
+import java.util.List;
 
 public class lv0_91_to_100_sample {
 	
@@ -64,39 +66,121 @@ public class lv0_91_to_100_sample {
 	    }
 		
 		/*
-		 	94) 
+		 	94) n개 간격의 원소들
+		 	정수 리스트 num_list와 정수 n이 주어질 때, 
+		 	num_list의 첫 번째 원소부터 마지막 원소까지 n개 간격으로 저장되어있는 원소들을 차례로 담은 리스트를 
+		 	return하도록 solution 함수를 완성해주세요.
 		*/
-		
+		public int[] solution94(int[] num_list, int n) {
+	        int[] answer = {};
+	        int len = (num_list.length%n==0)? num_list.length/n: num_list.length/n+1;
+	        answer = new int[len];
+	        int index = 0;
+	        for(int i=0; i<num_list.length; i+=n) {
+	        	answer[index++] = num_list[i];
+	        }
+	        return answer;
+	    }
 		
 		/*
-		 	95) 
+		 	95) 순서 바꾸기
+		 	정수 리스트 num_list와 정수 n이 주어질 때, 
+		 	num_list를 n 번째 원소 이후의 원소들과 n 번째까지의 원소들로 나눠 
+		 	n 번째 원소 이후의 원소들을 n 번째까지의 원소들 앞에 붙인 리스트를 return하도록 solution 함수를 완성해주세요.
 		*/
-		
+		public int[] solution95(int[] num_list, int n) {
+	        int[] answer = {};
+	        answer = new int[num_list.length];
+	        int j = 0;
+	        int k = 0; 	        
+	        for(int i=n; i<answer.length+n; i++) {
+	        	if(i <= num_list.length-1) {
+	        		answer[j] = num_list[i];
+	        	}else {
+	        		answer[j] = num_list[k++];
+	        	}
+	        	j++;
+	        }
+	        
+	        return answer;
+	    }
 		
 		/*
-		 	96) 
-		*/
-		
+		 	96) n 번째 원소까지
+		 	정수 리스트 num_list와 정수 n이 주어질 때, 
+		 	num_list의 첫 번째 원소부터 n 번째 원소까지의 모든 원소를 담은 리스트를 return하도록 solution 함수를 완성해주세요.
+		 */
+		public int[] solution96(int[] num_list, int n) {
+			int[] answer = {};
+			answer = new int[n];
+			for(int i=0; i<n; i++){
+				answer[i] = num_list[i];
+			}
+			return answer;
+		}
 		
 		/*
-		 	97) 
+		 	97) n 번째 원소부터
+		 	정수 리스트 num_list와 정수 n이 주어질 때, 
+		 	n 번째 원소부터 마지막 원소까지의 모든 원소를 담은 리스트를 return하도록 solution 함수를 완성해주세요.
 		*/
-		
+		public int[] solution97(int[] num_list, int n) {
+	        int[] answer = {};
+	        answer = new int[num_list.length-n+1];
+	        int index = n-1;
+	        for(int i=0; i<answer.length; i++){
+	            answer[i] = num_list[index++];
+	        }
+	        return answer;
+	    }
 		 
 		/*
-		 	98) 
+		 	98) 첫 번째로 나오는 음수
+		 	정수 리스트 num_list가 주어질 때, 
+		 	첫 번째로 나오는 음수의 인덱스를 return하도록 solution 함수를 완성해주세요. 
+		 	음수가 없다면 -1을 return합니다.
 		*/ 
-		
+		public int solution98(int[] num_list) {
+	        int answer = 0;
+	        for(int i=0; i<num_list.length; i++) {
+	        	if(num_list[i] < 0) {
+	        		answer = i;
+	        		break;
+	        	}else{
+	                answer = -1;
+	            }
+	        }
+	        return answer;
+	    }
 		
 		/*
-		 	99) 
+		 	99) 카운트 다운
+		 	정수 start_num와 end_num가 주어질 때, 
+		 	start_num에서 end_num까지 1씩 감소하는 수들을 차례로 담은 리스트를 return하도록 solution 함수를 완성해주세요.
 		*/
-		
+		public int[] solution99(int start_num, int end_num) {
+	        int[] answer = {};
+	        int index = 0;
+	        answer = new int[start_num-end_num+1];
+	        for(int i=start_num; i>=end_num; i--){
+	            answer[index++] = i;
+	        }
+	        return answer;
+	    }
 		
 		/*
-		 	100) 
+		 	100) 배열 만들기1
+		 	정수 n과 k가 주어졌을 때, 1 이상 n이하의 정수 중에서 k의 배수를 오름차순으로 저장한 배열을 return 하는 solution 함수를 완성해 주세요.
 		*/
-		
+		public int[] solution100(int n, int k) {
+			int[] answer = {};
+	        int index = 0;
+	        answer = new int[n/k];
+	        for(int i=k; i<=n; i+=k){
+	            answer[index++] = i;
+	        }
+	        return answer;
+	    }
 		
 	}
 
@@ -120,32 +204,45 @@ public class lv0_91_to_100_sample {
 		System.out.println("93번 문제 : "+Arrays.toString(result93));
 		
 		//94
-		
-		//System.out.println("94번 문제 : "+result94);
+		int[] list = {4, 2, 6, 1, 7, 6};
+		int n94 = 4;
+		int[] result94 = sol.solution94(list, n94);
+		System.out.println("94번 문제 : "+Arrays.toString(result94));
 		
 		//95
-		
-		//System.out.println("95번 문제 : "+result95);
+		int[] arr95 = {5, 2, 1, 7, 5};
+		int n95 = 3;
+		int[] result95 = sol.solution95(arr95, n95);
+		System.out.println("95번 문제 : "+Arrays.toString(result95));
 		
 		//96
-		
-		//System.out.println("96번 문제 : "+result99);
+		int[] arr96 = {5, 2, 1, 7, 5};
+		int n96 = 3;
+		int[] result96 = sol.solution96(arr96, n96);
+		System.out.println("96번 문제 : "+Arrays.toString(result96));
 		
 		//97
-		
-		//System.out.println("97번 문제 : "+result97);
+		int[] arr97 = {5, 2, 1, 7, 5};
+		int n97 = 2;
+		int[] result97 = sol.solution97(arr97, n97);
+		System.out.println("97번 문제 : "+Arrays.toString(result97));
 		
 		//98
-		
-		//System.out.println("98번 문제 : "+Arrays.deepToString(result98));
+		int []arr98 = {12, 4, 15, 46, 38, -2, 15};
+		int result98 = sol.solution98(arr98);
+		System.out.println("98번 문제 : "+result98);
 		
 		//99
-		
-		//System.out.println("99번 문제 : "+Arrays.toString(result99));
+		int start = 10;
+		int end = 3;
+		int result99[] = sol.solution99(start, end);
+		System.out.println("99번 문제 : "+Arrays.toString(result99));
 		
 		//100
-		
-		//System.out.println("100번 문제 : "+result70);
+		int n = 10;
+		int k =3;
+		int[] result100 = sol.solution100(n, k);
+		System.out.println("100번 문제 : "+Arrays.toString(result100));
 
 	}
 
