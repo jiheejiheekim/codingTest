@@ -1,9 +1,5 @@
 package level_0;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.LinkedHashSet;
-
 public class lv0_101_to_110 {
 	
 	static class Solution{	//정답률 순으로 보기 때문에 번호 바뀔 수 있음
@@ -83,19 +79,59 @@ public class lv0_101_to_110 {
 	    }
 		
 		/*
-		 	105) 
+		 	105) 부분 문자열 이어 붙여 문자열 만들기
+		 	길이가 같은 문자열 배열 my_strings와 이차원 정수 배열 parts가 매개변수로 주어집니다. 
+		 	parts[i]는 [s, e] 형태로, my_string[i]의 인덱스 s부터 인덱스 e까지의 부분 문자열을 의미합니다. 
+		 	각 my_strings의 원소의 parts에 해당하는 부분 문자열을 순서대로 이어 붙인 문자열을 return 하는 solution 함수를 작성해 주세요.
 		*/
-		
+		public String solution105(String[] my_strings, int[][] parts) {
+	        String answer = "";
+	        int j = 0;
+	        int index1 = 0 ;
+	        int index2 = 0 ;
+	        for(int i=0; i<my_strings.length; i++) {
+	        	j=0;
+	        	index1 = parts[i][j];
+	        	index2 = parts[i][j+1];
+	        	answer += my_strings[i].substring(index1, index2+1);
+	        }
+	        return answer;
+	    }
 		
 		/*
-		 	106) 
+		 	106) 글자 이어 붙여 문자열 만들기
+		 	문자열 my_string과 정수 배열 index_list가 매개변수로 주어집니다. 
+		 	my_string의 index_list의 원소들에 해당하는 인덱스의 글자들을 순서대로 이어 붙인 문자열을 return 하는 solution 함수를 작성해 주세요.
 		*/
-		
+		public String solution106(String my_string, int[] index_list) {
+	        String answer = "";
+	        for(int i=0; i<index_list.length; i++){
+	            answer += my_string.charAt(index_list[i]);
+	        }
+	        return answer;
+	    }
 		
 		/*
-		 	107) 
+		 	107) 수 조작하기1
+		 	정수 n과 문자열 control이 주어집니다. control은 "w", "a", "s", "d"의 4개의 문자로 이루어져 있으며, 
+		 	control의 앞에서부터 순서대로 문자에 따라 n의 값을 바꿉니다.
+			"w" : n이 1 커집니다.
+			"s" : n이 1 작아집니다.
+			"d" : n이 10 커집니다.
+			"a" : n이 10 작아집니다.
+			위 규칙에 따라 n을 바꿨을 때 가장 마지막에 나오는 n의 값을 return 하는 solution 함수를 완성해 주세요.
 		*/
-		
+		public int solution107(int n, String control) {
+	        int answer = 0;
+	        answer = n;
+	        for(int i=0; i<control.length(); i++){
+	            if(control.charAt(i) == 'w') answer+=1;
+	            if(control.charAt(i) == 's') answer-=1;
+	            if(control.charAt(i) == 'd') answer+=10;
+	            if(control.charAt(i) == 'a') answer-=10;
+	        }
+	        return answer;
+	    }
 		 
 		/*
 		 	108) 
@@ -142,16 +178,22 @@ public class lv0_101_to_110 {
 		System.out.println("104번 문제 : "+result104);
 		
 		//105
-		
-		//System.out.println("105번 문제 : "+result105);
+		String[] arr1051 = {"progressive", "hamburger", "hammer", "ahocorasick"};
+		int[][] arr1052 = {{0, 4}, {1, 2}, {3, 5}, {7, 7}};
+		String result105 = sol.solution105(arr1051, arr1052);
+		System.out.println("105번 문제 : "+result105);
 		
 		//106
-		
-		//System.out.println("106번 문제 : "+result106);
+		String st106 = "cvsgiorszzzmrpaqpe";
+		int arr106[] = {16, 6, 5, 3, 12, 14, 11, 11, 17, 12, 7};
+		String result106 = sol.solution106(st106, arr106);
+		System.out.println("106번 문제 : "+result106);
 		
 		//107
-		
-		//System.out.println("107번 문제 : "+result107);
+		int n107 = 0;
+		String control107 = "wsdawsdassw";
+		int result107 = sol.solution107(n107, control107);
+		System.out.println("107번 문제 : "+result107);
 		
 		//108
 		
