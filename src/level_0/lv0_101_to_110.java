@@ -251,7 +251,7 @@ public class lv0_101_to_110 {
 		//110
 		int[] num_list110 = {3, 4, 5, 2, 1};
 		int result110 = sol.solution110(num_list110);
-		System.out.println("70번 문제 : "+result110);
+		System.out.println("110번 문제 : "+result110);
 
 	}
 

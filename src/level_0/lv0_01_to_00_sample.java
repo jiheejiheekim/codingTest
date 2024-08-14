@@ -53,7 +53,7 @@ public class lv0_01_to_00_sample {
 		
 		
 		/*
-		 	70) 
+		 	10) 
 		*/
 		
 		
@@ -100,7 +100,7 @@ public class lv0_01_to_00_sample {
 		
 		//70
 		
-		//System.out.println("70번 문제 : "+result70);
+		//System.out.println("10번 문제 : "+result10);
 
 	}
 
