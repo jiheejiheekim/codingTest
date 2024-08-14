@@ -1,5 +1,9 @@
 package level_0;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class lv0_101_to_110 {
 	
 	static class Solution{	//정답률 순으로 보기 때문에 번호 바뀔 수 있음
@@ -134,19 +138,57 @@ public class lv0_101_to_110 {
 	    }
 		 
 		/*
-		 	108) 
+		 	108) n의 배수
+		 	정수 num과 n이 매개 변수로 주어질 때, num이 n의 배수이면 1을 return n의 배수가 아니라면 0을 return하도록 solution 함수를 완성해주세요.
 		*/ 
-		
+		public int solution108(int num, int n) {
+	        int answer = 0;
+	        answer = (num%n==0)? 1:0;
+	        return answer;
+	    }
 		
 		/*
-		 	109) 
+		 	109) 마지막 두 원소
+		 	정수 리스트 num_list가 주어질 때, 
+		 	마지막 원소가 그전 원소보다 크면 마지막 원소에서 그전 원소를 뺀 값을 
+		 	마지막 원소가 그전 원소보다 크지 않다면 마지막 원소를 두 배한 값을 추가하여 return하도록 solution 함수를 완성해주세요.
 		*/
-		
+		public int[] solution109(int[] num_list) {
+			int[] answer = {};
+	        List<Integer> list = new ArrayList<Integer>();
+	        for(int i : num_list) {
+	            list.add(i);
+	        }
+	        if(list.get(list.size()-1) > list.get(list.size()-2)) list.add(list.get(list.size()-1)-list.get(list.size()-2));
+	        else if(list.get(list.size()-1) <= list.get(list.size()-2)) list.add(list.get(list.size()-1)*2);
+
+	        //System.out.println(list.toString());
+	        answer = new int[list.size()];
+	        for(int i=0; i<list.size(); i++){
+	            answer[i] = list.get(i);
+	        }
+	        return answer;
+	    }
 		
 		/*
-		 	110) 
+		 	110) 이어 붙인 수
+			정수가 담긴 리스트 num_list가 주어집니다. 
+			num_list의 홀수만 순서대로 이어 붙인 수와 짝수만 순서대로 이어 붙인 수의 합을 return하도록 solution 함수를 완성해주세요.
 		*/
-		
+		public int solution110(int[] num_list) {
+			int answer = 0;
+	        String st1 = "";
+	        String st2 = "";
+	        for(int i=0; i<num_list.length; i++){
+	            if(num_list[i]%2==0){
+	                st1 += String.valueOf(num_list[i]);
+	            }else{
+	                st2 += String.valueOf(num_list[i]);
+	            }
+	        }
+	        answer = Integer.valueOf(st1) + Integer.valueOf(st2);
+	        return answer;
+	    }
 		
 	}
 
@@ -196,16 +238,20 @@ public class lv0_101_to_110 {
 		System.out.println("107번 문제 : "+result107);
 		
 		//108
-		
-		//System.out.println("108번 문제 : "+Arrays.deepToString(result108));
+		int num108 = 98;
+		int n108 = 2;
+		int result108 = sol.solution108(num108, n108);
+		System.out.println("108번 문제 : "+result108);
 		
 		//109
-		
-		//System.out.println("109번 문제 : "+Arrays.toString(result109));
+		int[] arr109 = {5, 2, 1, 7, 5};
+		int[] result109 = sol.solution109(arr109);
+		System.out.println("109번 문제 : "+Arrays.toString(result109));
 		
 		//110
-		
-		//System.out.println("70번 문제 : "+result110);
+		int[] num_list110 = {3, 4, 5, 2, 1};
+		int result110 = sol.solution110(num_list110);
+		System.out.println("70번 문제 : "+result110);
 
 	}
 
