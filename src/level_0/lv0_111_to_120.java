@@ -1,8 +1,8 @@
 package level_0;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.LinkedHashSet;
+import java.util.List;
 
 public class lv0_111_to_120 {
 	
@@ -51,29 +51,108 @@ public class lv0_111_to_120 {
 	    }
 		
 		/*
-		 	113) 
+		 	113) 두 수의 연산값 비교하기
+		 	연산 ⊕는 두 정수에 대한 연산으로 두 정수를 붙여서 쓴 값을 반환합니다. 예를 들면 다음과 같습니다.
+			12 ⊕ 3 = 123
+			3 ⊕ 12 = 312
+			양의 정수 a와 b가 주어졌을 때, a ⊕ b와 2 * a * b 중 더 큰 값을 return하는 solution 함수를 완성해 주세요.
+			단, a ⊕ b와 2 * a * b가 같으면 a ⊕ b를 return 합니다.
 		*/
-		
+		public int solution113(int a, int b) {
+			int answer = 0;
+	        String st_num1 = "";
+	        int num1 = 0;
+	        int num2 = 1;
+	        
+	        st_num1 = String.valueOf(a) + String.valueOf(b);
+	        num1 = Integer.parseInt(st_num1);
+	        
+	        num2 = 2 * a * b;
+	        
+	        if(num1 >= num2) answer = num1;
+	        else if(num1 < num2) answer = num2; 
+	        
+	        return answer;
+	    }
 		
 		/*
-		 	114) 
+		 	114) 더 크게 합치기
+		 	연산 ⊕는 두 정수에 대한 연산으로 두 정수를 붙여서 쓴 값을 반환합니다. 예를 들면 다음과 같습니다.
+			12 ⊕ 3 = 123
+			3 ⊕ 12 = 312
+			양의 정수 a와 b가 주어졌을 때, a ⊕ b와 b ⊕ a 중 더 큰 값을 return 하는 solution 함수를 완성해 주세요.
+			
+			단, a ⊕ b와 b ⊕ a가 같다면 a ⊕ b를 return 합니다.
 		*/
-		
+		public int solution114(int a, int b) {
+			int answer = 0;
+	        String st_num1 = String.valueOf(a) + String.valueOf(b);
+	        String st_num2 = String.valueOf(b) + String.valueOf(a);
+	        
+	        int num1 = Integer.valueOf(st_num1);
+	        int num2 = Integer.valueOf(st_num2);
+	        
+	        answer = (num1 >= num2)? num1:num2;
+	        
+	        return answer;
+	    }
 		
 		/*
-		 	115) 
+		 	115) 문자열 곱하기
+		 	문자열 my_string과 정수 k가 주어질 때, my_string을 k번 반복한 문자열을 return 하는 solution 함수를 작성해 주세요.
 		*/
-		
+		public String solution115(String my_string, int k) {
+	        String answer = "";
+	        for(int i=0; i<k; i++){
+	            answer += my_string;
+	        }
+	        return answer;
+	    }
 		
 		/*
-		 	116) 
+		 	116) 문자 리스트를 문자열로 변환하기
+		 	문자들이 담겨있는 배열 arr가 주어집니다. arr의 원소들을 순서대로 이어 붙인 문자열을 return 하는 solution함수를 작성해 주세요.
 		*/
-		
+		public String solution116(String[] arr) {
+	        String answer = "";
+	        for(String st : arr){
+	            answer += st;
+	        }
+	        return answer;
+	    }
 		
 		/*
-		 	117) 
+		 	117) 배열의 원소 삭제하기
+		 	정수 배열 arr과 delete_list가 있습니다. 
+		 	arr의 원소 중 delete_list의 원소를 모두 삭제하고 남은 원소들은 기존의 arr에 있던 순서를 
+		 	유지한 배열을 return 하는 solution 함수를 작성해 주세요.
 		*/
-		
+		public int[] solution117(int[] arr, int[] delete_list) {
+			int[] answer = {};
+			int index = 0;
+	        List<Integer> list = new ArrayList();
+	        
+	        for(int i=0; i<arr.length; i++) {
+	        	list.add(arr[i]);
+	        }
+	        //System.out.println(list.toString());
+	        
+	        for(int i=0;i<arr.length;i++){
+	            for(int j=0;j<delete_list.length;j++){
+	                if(arr[i] == delete_list[j]){
+	                    list.remove(Integer.valueOf(arr[i]));
+	                }
+	            }
+	        }
+	        
+	        answer = new int[list.size()];
+	        for(int i=0; i<answer.length; i++) {
+	        	answer[index++] = list.get(i);
+	        }
+	        
+	        //System.out.println(list.toString());
+	        return answer;
+	    }
 		 
 		/*
 		 	118) 
@@ -106,24 +185,33 @@ public class lv0_111_to_120 {
 		System.out.println("112번 문제 : "+result112);
 		
 		//113
-		
-		//System.out.println("113번 문제 : "+result113);
+		int a113 = 2;
+		int b113 = 91;
+		int result113 = sol.solution113(a113, b113);
+		System.out.println("113번 문제 : "+result113);
 		
 		//114
-		
-		//System.out.println("114번 문제 : "+result114);
+		int a114 = 9;
+		int b114 = 91;
+		int result114 = sol.solution114(a114, b114);
+		System.out.println("114번 문제 : "+result114);
 		
 		//115
-		
-		//System.out.println("115번 문제 : "+result115);
+		String st115 = "string";
+		int k =3;
+		String result115 = sol.solution115(st115, k);
+		System.out.println("115번 문제 : "+result115);
 		
 		//116
-		
-		//System.out.println("116번 문제 : "+result116);
+		String[] arr116 = {"a","b","c"};
+		String result116 = sol.solution116(arr116);
+		System.out.println("116번 문제 : "+result116);
 		
 		//117
-		
-		//System.out.println("117번 문제 : "+result117);
+		int[] arr117 = {1, 2, 3, 4, 5};
+		int[] delete117 = {1, 2, 3, 4};
+		int []result117 = sol.solution117(arr117, delete117);
+		System.out.println("117번 문제 : "+Arrays.toString(result117));
 		
 		//118
 		
