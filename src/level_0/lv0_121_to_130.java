@@ -66,10 +66,10 @@ public class lv0_121_to_130 {
 	        			hap1 += num_list[num_list.length-1];
 	        		}
 	        	}
-	        	System.out.println("i는 : "+i+" / 합1 : "+num_list[i-1]);
+	        	//System.out.println("i는 : "+i+" / 합1 : "+num_list[i-1]);
 	        	hap2 += num_list[i];
 	        }
-	        System.out.println(hap1 + " / " + hap2);
+	        //System.out.println(hap1 + " / " + hap2);
 	        answer = (hap1 >= hap2)? hap1:hap2;
 	        return answer;
 	    }

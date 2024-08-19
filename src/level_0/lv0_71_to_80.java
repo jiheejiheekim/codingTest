@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class lv0_71_to_80_sample {
+public class lv0_71_to_80 {
 	
 	static class Solution{	//정답률 순으로 보기 때문에 번호 바뀔 수 있음
 		/*

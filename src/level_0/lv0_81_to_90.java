@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 
-public class lv0_81_to_90_sample {
+public class lv0_81_to_90 {
 	
 	static class Solution{	//정답률 순으로 보기 때문에 번호 바뀔 수 있음
 		/*

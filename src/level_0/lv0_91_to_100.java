@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 
-public class lv0_91_to_100_sample {
+public class lv0_91_to_100 {
 	
 	static class Solution{	//정답률 순으로 보기 때문에 번호 바뀔 수 있음
 		/*
