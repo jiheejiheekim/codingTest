@@ -155,19 +155,56 @@ public class lv0_111_to_120 {
 	    }
 		 
 		/*
-		 	118) 
+		 	118) 카운트업 
+		 	정수 start_num와 end_num가 주어질 때, start_num부터 end_num까지의 숫자를 차례로 담은 리스트를 return하도록 solution 함수를 완성해주세요.
 		*/ 
-		
+		public int[] solution118(int start_num, int end_num) {
+	        int[] answer = {};
+	        answer = new int[end_num - start_num + 1];
+	        int index = 0;
+	        for(int i=start_num; i<=end_num; i++){
+	            answer[index++] = i;
+	        }
+	        return answer;
+	    }
 		
 		/*
-		 	119) 
+		 	119) 접미사 배열
+		 	어떤 문자열에 대해서 접미사는 특정 인덱스부터 시작하는 문자열을 의미합니다. 
+		 	예를 들어, "banana"의 모든 접미사는 "banana", "anana", "nana", "ana", "na", "a"입니다.
+		 	문자열 my_string이 매개변수로 주어질 때, 
+		 	my_string의 모든 접미사를 사전순으로 정렬한 문자열 배열을 return 하는 solution 함수를 작성해 주세요.
 		*/
-		
+		public String[] solution119(String my_string) {
+	        String[] answer = {};
+	        answer = new String[my_string.length()];
+	        for(int i=0; i<answer.length; i++) {
+	        	answer[i] = my_string.substring(i);
+	        }
+	        //System.out.println(Arrays.toString(answer));
+	        Arrays.sort(answer);
+	        return answer;
+	    }
 		
 		/*
-		 	120) 
+		 	120) 조건에 맞게 수열 변환하기 3
+		 	정수 배열 arr와 자연수 k가 주어집니다.
+			만약 k가 홀수라면 arr의 모든 원소에 k를 곱하고, k가 짝수라면 arr의 모든 원소에 k를 더합니다.
+			이러한 변환을 마친 후의 arr를 return 하는 solution 함수를 완성해 주세요. 
 		*/
-		
+		public int[] solution120(int[] arr, int k) {
+			int[] answer = {};
+	        answer = new int[arr.length];
+	        for(int i=0; i<arr.length; i++){
+	            if(k%2==0){
+	                answer[i] = arr[i]+k;
+	            }else {
+	                answer[i] = arr[i]*k;
+	            }
+	        }
+	        
+	        return answer;
+		}
 		
 	}
 
@@ -214,16 +251,21 @@ public class lv0_111_to_120 {
 		System.out.println("117번 문제 : "+Arrays.toString(result117));
 		
 		//118
-		
-		//System.out.println("118번 문제 : "+Arrays.deepToString(result118));
+		int num1181 = 3;
+		int num1192 = 10;
+		int[] result118 = sol.solution118(num1181, num1192);
+		System.out.println("118번 문제 : "+Arrays.toString(result118));
 		
 		//119
-		
-		//System.out.println("119번 문제 : "+Arrays.toString(result119));
+		String st119 = "banana";
+		String[] result119 = sol.solution119(st119);
+		System.out.println("119번 문제 : "+Arrays.toString(result119));
 		
 		//120
-		
-		//System.out.println("120번 문제 : "+result120);
+		int[] arr120 = {1, 2, 3, 100, 99, 98};
+		int k120 = 3;
+		int[] result120 = sol.solution120(arr120, k120);
+		System.out.println("119번 문제 : "+Arrays.toString(result120));
 
 	}
 
