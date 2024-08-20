@@ -1,8 +1,7 @@
 package level_0;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.LinkedHashSet;
+import java.util.ArrayList;
+import java.util.List;
 
 public class lv0_121_to_130 {
 	
@@ -75,14 +74,33 @@ public class lv0_121_to_130 {
 	    }
 		
 		/*
-		 	124) 
+		 	124) 정수 찾기
+		 	정수 리스트 num_list와 찾으려는 정수 n이 주어질 때, num_list안에 n이 있으면 1을 없으면 0을 return하도록 solution 함수를 완성해주세요.
 		*/
-		
+		public int solution124(int[] num_list, int n) {
+	        int answer = 0;
+	        for(int i=0; i<num_list.length; i++){
+	            if(num_list[i] == n){
+	            	//System.out.println(num_list[i]);
+	            	answer = 1;
+	            }
+	        }
+	        return answer;
+	    }
 		
 		/*
-		 	125) 
+		 	125) 부분 문자열인지 확인하기
+		 	부분 문자열이란 문자열에서 연속된 일부분에 해당하는 문자열을 의미합니다. 
+		 	예를 들어, 문자열 "ana", "ban", "anana", "banana", "n"는 모두 문자열 "banana"의 부분 문자열이지만, 
+		 	"aaa", "bnana", "wxyz"는 모두 "banana"의 부분 문자열이 아닙니다.
+		 	문자열 my_string과 target이 매개변수로 주어질 때, 
+		 	target이 문자열 my_string의 부분 문자열이라면 1을, 아니라면 0을 return 하는 solution 함수를 작성해 주세요.
 		*/
-		
+		public int solution125(String my_string, String target) {
+	        int answer = 0;
+	        if(my_string.contains(target)) answer = 1;
+	        return answer;
+	    }
 		
 		/*
 		 	126) 
@@ -132,12 +150,16 @@ public class lv0_121_to_130 {
 		System.out.println("123번 문제 : "+result123);
 		
 		//124
-		
-		//System.out.println("124번 문제 : "+result124);
+		int []list = {1,2,3,4,5};
+		int n124 = 3;
+		int result124 = sol.solution124(list, n124);
+		System.out.println("124번 문제 : "+result124);
 		
 		//125
-		
-		//System.out.println("125번 문제 : "+result125);
+		String st125 = "banana";
+		String st1252 = "ana";
+		int result125 = sol.solution125(st125, st1252);
+		System.out.println("125번 문제 : "+result125);
 		
 		//126
 		
